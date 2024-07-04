@@ -1,0 +1,7 @@
+runtime: python39
+
+service: app
+
+handlers:
+- url: /.*
+  script: app.app
