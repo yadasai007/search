@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read More Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #text-content {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #read-more {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        #read-more:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p id="text-content"></p>
+    <button id="read-more" onclick="showMore()">Read More</button>
+    <script>
+        // The full paragraph text
+        const paragraph = `{{results}}`;
+        console.log(paragraph);
+        // Split the paragraph into words
+        const words = paragraph.split(' ');
+
+        // Initial display setup
+        let currentWordCount = 100;
+
+        // Function to display the text
+        function displayText() {
+            const textElement = document.getElementById('text-content');
+            textElement.innerHTML = words.slice(0, currentWordCount).join(' ');
+
+            // Check if there are more words to show
+            if (currentWordCount >= words.length) {
+                document.getElementById('read-more').style.display = 'none';
+            }
+        }
+
+        // Function to show more text
+        function showMore() {
+            currentWordCount += 100;
+            displayText();
+        }
+
+        // Initial call to display the first 100 words
+        displayText();
+    </script>
+</body>
+</html>
