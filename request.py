@@ -1,5 +1,6 @@
 import json
 import requests
+from log_file import logger
 class Request:
     def __init__(self) -> None:
         self.token=None
@@ -25,12 +26,11 @@ class Request:
         if response.status_code == 200:
             # Request was successful
             data = response.json()  # Assuming response is JSON data
-            print("Success")  # Print the response data
+            logger.info("Success") 
         else:
-            print('Error:', response.status_code)
+            logger.error('Error:', response.status_code)
 
         vector=data['data'][0]['embedding']
-        print(vector)
         return vector
     
     def request_search(self,vector_text):
@@ -39,15 +39,11 @@ class Request:
         "input": vector_text
         }
         response = requests.post(self.url, json=body, headers=self.header)
-        print(self.url)
-        print(body)
-        print(self.header)
         if response.status_code == 200:
             # Request was successful
             data = response.json()  # Assuming response is JSON data
-            print("Success")  # Print the response data
+            logger.info("Success") 
         else:
-            print('Error:', response.status_code)
-        print(response.status_code)
+            logger.error('Error:', response.status_code)
         vector=data['data'][0]['embedding']
         return vector

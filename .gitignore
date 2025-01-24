@@ -1,0 +1,9 @@
+
+.gcloudignore
+.git
+aws.json
+api.json
+app.log
+data.json
+/setup.cfg
+/logs/*
