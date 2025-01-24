@@ -7,3 +7,4 @@ app.log
 data.json
 /setup.cfg
 /logs/*
+/__pycache__/*
