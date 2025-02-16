@@ -8,3 +8,4 @@ data.json
 /setup.cfg
 /logs/*
 /__pycache__/*
+/virtual_environment/*
